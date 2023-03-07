@@ -1,4 +1,4 @@
-# Pertemuan 4 - Extract Transform Load (ETL) with SSIS (SQL Server Integration Services) 
+# Pertemuan 5 - Extract Transform Load (ETL) with SSIS (SQL Server Integration Services) 
 
 1. Lakukan langkah-langkah pada bagian ETL sesi 3 dan 4 dengan seksama dan screenshoot setiap package yang dibuat, proses run package, dan hasil tabel/file.
 2. Buatlah koneksi odbc ke database selain SQL server, misal PosgreSQL/MySQL. 
