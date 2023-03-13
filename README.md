@@ -9,4 +9,5 @@
 > [`03. Basic Python`](meet/meet3)       
 > [`04. Web Scraping`](meet/meet4)       
 > [`05. Extract, Transform, Load`](meet/meet5)       
+> [`06. Distributed File System`](meet/meet6)       
 
