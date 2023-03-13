@@ -14,6 +14,8 @@ hdfs dfsadmin -refreshNodes
 
 hdfs dfsadmin -printTopology
 
+
+
 # MENGAMBIL FILE DARI INTERNET
 
 wget https://stats.govt.nz/assets/Uploads/Annual-enterprise-survey/Annual-enterprise-survey-2021-financial-year-provisional/Download-data/annual-enterprise-survey-2021-financial-year-provisional-csv.csv
@@ -30,11 +32,11 @@ hadoop fs -mkdir praktikum6
 
 hadoop fs -ls
 
-mv annual-enterprise-survey-2021-financial-year-provisional-csv.csv sample-222011647.csv
+mv annual-enterprise-survey-2021-financial-year-provisional-csv.csv sample-222011.csv
 
 ls
 
-hadoop fs -copyFromLocal sample-222011647.csv praktikum6/sample-222011647.csv
+hadoop fs -copyFromLocal sample-222011.csv praktikum6/sample-222011.csv
 
 ls
 
@@ -42,8 +44,11 @@ hadoop fs -ls
 
 hadoop fs -ls praktikum6
 
-hadoop fs -rm praktikum6/sample-222011647.csv
+hadoop fs -rm praktikum6/sample-222011.csv
 
 hadoop fs -ls praktikum6
 
-# credit : ARAM647
+
+
+# credit : ARAM
+
