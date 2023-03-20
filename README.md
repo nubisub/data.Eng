@@ -10,4 +10,5 @@
 > [`04. Web Scraping`](meet/meet4)       
 > [`05. Extract, Transform, Load`](meet/meet5)       
 > [`06. Distributed File System`](meet/meet6)       
+> [`07. Distributed Processing`](meet/meet7)       
 
