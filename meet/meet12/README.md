@@ -232,16 +232,10 @@
    - Filter record dengan tahun lahir < 2000
 
      ```scala
-     tpd12_df.filter(substring($"dob",0,4) > 2000).show()
-     ```
-
-   - Group by Gender
-
-     ```scala
      tpd12_df.filter(substring($"dob",0,4) < 2000).show()
      ```
 
-   - Bentuk kolom baru yang berisi gabungan antara first name, middle name, dan last name
+   - Group by Gender
 
      ```scala
      tpd12_df.groupBy("gender").count().show()
@@ -249,9 +243,7 @@
      tpd12_df.filter($"gender"==="M").show()
      ```
 
-4. Penggunaan SQL spark
-
-   - Simpan kolom baru yang berisi gabungan antara first name, middle name, dan last name, dob, gender, dan salary ke dalam tabel hive.
+   - Bentuk kolom baru yang berisi gabungan antara first name, middle name, dan last name
 
      ```scala
      val tpd12_new = tpd12_df.withColumn("fullname",concat($"firstname",lit(" "),$"middlename",lit(" "),$"lastname"))
@@ -260,7 +252,9 @@
      tpd12_hive.show()
      ```
 
-   - Lakukan transformasi dengan menambah kolom umur yang berisi hasil pengurangan tahun 2023 dengan tahun lahir
+4. Penggunaan SQL spark
+
+   - Simpan kolom baru yang berisi gabungan antara first name, middle name, dan last name, dob, gender, dan salary ke dalam tabel hive.
 
      ```scala
      tpd12_hive.createOrReplaceTempView("tpd12_internal")
@@ -268,6 +262,13 @@
      tpd12_internal.show()
      spark.table("tpd12_internal").write.saveAsTable("tpd12_external")
      val tpd12_external = spark.sql("SELECT * FROM tpd12_external")
+     ```
+
+   - Lakukan transformasi dengan menambah kolom umur yang berisi hasil pengurangan tahun 2023 dengan tahun lahir
+
+     ```scala
+     val tpd12_transform = spark.sql("SELECT *, int(2023-substring(dob,0,4)) as age FROM tpd12_external")
+     tpd12_transform.show()
      ```
 
    - Tampilkan hasil transformasi
@@ -279,12 +280,13 @@
 5. Simpan hasil transformasi pada nomor 4 dalam format orc di hdfs
 
    ```scala
-   val tpd12_transform = spark.sql("SELECT *, int(2023-substring(dob,0,4)) as age FROM tpd12_external")
-   tpd12_transform.show()
-   ```
-
-   ```scala
    tpd12_transform.write.orc("/user/root/tpd12/transform_result/")
    val tpd12_read_orc = spark.read.orc("/user/root/tpd12/transform_result/")
    tpd12_read_orc.show()
    ```
+
+<hr>
+
+```bash
+credit penugasan : ARAM647
+```
