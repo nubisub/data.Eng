@@ -17,4 +17,5 @@
 > [`10. HBase`](meet/meet10)        
 > [`11. PIG & KAFKA`](meet/meet11)      
 > [`12. Spark`](meet/meet12)        
-> [`13. Pemrosesan Semi-Structured and Unstructured Data`](meet/meet13)
+> [`13. Pemrosesan Semi-Structured and Unstructured Data`](meet/meet13)     
+> [`14. Cloud Computing`](meet/meet14)
